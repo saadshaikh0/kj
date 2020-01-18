@@ -1,0 +1,108 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" charset="utf-8"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{%static 'question.css'%}">
+    <title>Questions Page</title>
+  </head>
+  <body>
+    <div class="head">
+      <h2 class="text-center">KJ CODE DECODE
+            <!-- <i class="fas fa-desktop"></i> -->
+          </h2>
+    </div>
+    <div class="question-heading">
+        <h4>Question Heading</h4>
+    </div>
+    <div class="container-fluid questions">
+
+      <div class="desc">
+        <p>You are given a square grid with some cells open (.) and some blocked (X). Your playing piece can move along any row or column until it reaches the edge of the grid or a blocked cell. Given a grid, a start and an end position, determine the number of moves it will take to get to the end position.
+
+  For example, you are given a grid with sides  described as follows:.</p>
+  <div class="input">
+    <p >...</p>
+  <p>.X.</p>
+  <p>...</p>
+  </div>
+<p>Function Description
+Complete the minimumMoves function in the editor. It must print an integer denoting the minimum moves required to get from the starting position to the goal.
+
+minimumMoves has the following parameter(s):
+
+grid: an array of strings representing the rows of the grid</p>
+<p>startX: an integer</p>
+<p>startY: an integer</p>
+<p>goalX: an integer</p>
+<p>goalY: an integer</p>
+<p>Input Format</p>
+
+<p>The first line contains an integer , the size of the array grid.
+Each of the next  lines contains a string of length .
+The last line contains four space-separated integers,
+
+Constraints
+
+Output Format</p>
+      </div>
+
+
+    </div>
+    <form action="/postdata/" id="data" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="container-fluid editwrap">
+      <div id="editor"></div>
+</div>
+<div class="input-program">
+  <textarea name="input" id='text' rows="6" cols="50" placeholder="Enter your input here..."></textarea>
+<div class="runbutton">
+  <button type="button" name="button">Run</button>
+    <button type="submit" name="submit">Submit</button>
+
+</div>
+
+
+</div>
+</form>
+<div class="output">
+  <h3>Output</h3>
+  <div style="white-space: pre-line;" id="outputpara"></div>
+  
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      var a=ace.edit("editor");
+      a.setValue("a=5\nfor i in range(a):\n\tprint(a)")
+      a.setOptions({ useWrapMode: false,
+    highlightActiveLine: true,
+    showPrintMargin: false,
+    theme: 'ace/theme/xcode',
+    mode: 'ace/mode/python',
+    fontSize: "15pt"});
+    $(document).on('submit',"#data",function(e){
+      e.preventDefault();
+      $.ajax({
+        type:'POST',
+        url:"/postdata/",
+        data:{
+          code:a.getValue(),
+          inputdata:$('#text').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success:function(data){
+          console.log(data);
+          var d=document.querySelector("#outputpara");
+          d.innerHTML=data["output"];
+        },
+      })
+    })
+    </script>
+  </body>
+</html>
