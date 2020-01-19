@@ -52,6 +52,26 @@ Output Format</p>
 
 
     </div>
+    <div class="tabs">
+      <ul>
+      <li class="text-center active" l="Python3">
+        Python
+        
+      </li>
+      <li class="text-center" l="java">
+        Java
+        
+      </li>
+      <li class="text-center" l="Cpp14">
+        
+        C++
+      </li>
+      <li class="text-center" l="c">
+        C
+       
+      </li>
+      </ul>
+    </div>
     <form action="/postdata/" id="data" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
     <div class="container-fluid editwrap">
@@ -86,12 +106,41 @@ Output Format</p>
     theme: 'ace/theme/xcode',
     mode: 'ace/mode/python',
     fontSize: "15pt"});
+    $(".tabs ul li").click(function(e){
+      var d=document.querySelectorAll(".tabs ul li");
+      for(var k=0;k<d.length;k++){
+        d[k].classList.remove("active");
+      }
+      console.log(e.target.innerHTML);
+      e.target.className+=" active";
+      var lang=e.target.getAttribute("l");
+      if(lang=="Python3"){
+        a.setOptions({mode:"ace/mode/python",});
+        a.setValue("#Enter your code here");
+      }
+      else if(lang=="java"){
+        a.setOptions({mode:"ace/mode/java",});
+        a.setValue("//Enter your code here");
+      }
+      else if(lang=="Cpp14"){
+        a.setOptions({mode:"ace/mode/c_cpp",});
+        a.setValue("//Enter your code here");
+      }
+      else if(lang=="c"){
+        a.setOptions({mode:"ace/mode/c_cpp",});
+        a.setValue("//Enter your code here");
+      }
+
+    })
     $(document).on('submit',"#data",function(e){
       e.preventDefault();
+      var t=$(".tabs ul li.active").attr("l");
+      
       $.ajax({
         type:'POST',
         url:"/postdata/",
         data:{
+          lang:t,
           code:a.getValue(),
           inputdata:$('#text').val(),
           csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),

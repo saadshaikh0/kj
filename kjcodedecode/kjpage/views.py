@@ -10,8 +10,8 @@ def postdata(request):
     if request.method=='POST':
         code=request.POST['code']
         inputdata=request.POST['inputdata']
-
-        print(code,inputdata)
+        lang=request.POST['lang']
+        print(code,inputdata,lang)
         headers = {
         'authority': 'ide.geeksforgeeks.org',
         'accept': 'application/json, text/javascript, */*; q=0.01',
@@ -28,7 +28,7 @@ def postdata(request):
         }
         print(type(code),type(inputdata))
         data = {
-        'lang': 'Python3',
+        'lang': lang,
         'code': code,
         'input': inputdata,
         'save': 'false'

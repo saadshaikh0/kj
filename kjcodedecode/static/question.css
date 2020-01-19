@@ -41,7 +41,7 @@ display: flex;
 .editwrap{
   padding: 1%;
   background: #e7eeef;
-
+  padding-top: 0px;
 }
 .output{
   padding: 1%;
@@ -88,4 +88,39 @@ background: white;
   background-color: #e7eeef;
   height: auto;
   padding-bottom: 2%;
+}
+.tabs ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0px;
+  padding-left: 45px;
+  margin-left: 10px;
+}
+
+.tabs ul li{
+  flex-grow: 1;
+  border:1px solid black;
+  padding: 1%;
+  background: #272343;
+  cursor:pointer;
+  color: #bae8e8;
+}
+.tabs a{
+  
+  text-decoration: none;
+  
+}
+
+.tabs ul li:hover{
+  background: #274b8f7c;
+  color: #bae8e8;
+  
+}
+.tabs ul li.active{
+  background: #274b8f7c;
+}
+.tabs{
+
+  width: 40%;
 }
