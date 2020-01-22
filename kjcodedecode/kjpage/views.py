@@ -4,8 +4,9 @@ import requests
 import json
 # Create your views here.
 def home(request):
+    return render(request,"home.html")
+def code(request):
     return render(request,"question.html")
-
 def postdata(request):
     if request.method=='POST':
         code=request.POST['code']
@@ -39,3 +40,5 @@ def postdata(request):
         print(output)
         
         return JsonResponse({'output':output})
+def mcq(request):
+    return render(request,"mcq.html")

@@ -1,10 +1,65 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" charset="utf-8"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'home.css'%}">
+<!-- <link rel="stylesheet" href="home.css"> -->
+<link href="https://fonts.googleapis.com/css?family=Syncopate:700&display=swap" rel="stylesheet">
     <title>Home Page</title>
   </head>
   <body>
-<h1>Your are in home page</h1>
+    <div class="head">
+      <h2 class="text-center">KJ CODE DECODE
+            <!-- <i class="fas fa-desktop"></i> -->
+          </h2>
+    </div>
+    <div class="content">
+      <div class="typewriter">
+        <h1>
+          KJ CODING COMPETITION
+        </h1>
+
+      </div>
+      <div class="contentpara">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      </div>
+
+      <h3 class="text-center stages">Stages</h3>
+      <div class="stagepara">
+        <div class="one">
+          <h4 >Multiple Choice Questions <i counter=1 class="arrow fas fa-sort-down"></i></h4>
+          <p> kalklasjclksdjfkdsjflksdjflkdsjflkdsjflkdsjfkldsjkfljsdfjlksdjflkssnbubjkfdvbsl iufheruifhdsvkjbfvhjbfd urhfiurehfhfkjdsl
+          </p>
+        </div>
+        <div class="two">
+          <h4 >Code Debugging <i counter=2 class="arrow fas fa-sort-down"></i></h4>
+          <p>askjv;dnvkjanv Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. nslk;dfjlk;sdajf;ldasjflkds hfvisudhisfdnbvkjdfnvjdbsvkjdvh</p>
+        </div>
+        <div class="three">
+          <h4 >Coding <i counter=3 class="arrow fas fa-sort-down"></i></h4>
+          <p>vnlfdihvusoierhvirio hfbiuoerhfibfvhjbdsfjkvbyu afbuierbfuabflorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. jkbdsfiu</p>
+        </div>
+      </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+var a=document.querySelectorAll(".stagepara p");
+// for(var i=0;i<a.length;i++){
+//   a[i].style.display="none";
+// }
+$(".arrow").click(function(e){
+  var c=e.target.getAttribute("counter");
+
+  a[c-1].classList.toggle("active");
+})
+});
+</script>
   </body>
 </html>

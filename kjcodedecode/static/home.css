@@ -1,0 +1,91 @@
+html,body{
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body{
+  background: #e7eeef;
+}
+.head{
+  background: #272343;
+  padding: 3%;
+}
+.head h2{
+  color: #bae8e8;
+  text-shadow: 5px 5px 3px black;
+  font-size: 300%;
+}
+
+.typewriter {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+
+}
+.content{
+  height: auto;
+background: #bae8e8;
+}
+.contentpara{
+  padding:1% 8%;
+  font-size: 130%;
+}
+.stages{
+  font-size: 60px;
+  text-transform: uppercase;
+  font-family: 'Syncopate', sans-serif;
+
+
+  color: #0f4c75;
+}
+.stagepara{
+  padding: 5%;
+  padding-top:2%;
+counter-reset:stage;
+}
+.stagepara h4:before{
+  counter-increment: stage;
+   content: counter(stage);
+   width: 20px;
+   height: 20px;
+   border: 2px solid #0f4c75;
+   padding:0px 6px;
+   border-radius: 50%;
+   margin-right: 1%;
+}
+.stagepara p.active{
+  display: block;
+}
+.stagepara p{
+display: none;
+  padding-left: 4%;
+  width: 50%;
+}
+.stagepara div{
+  margin-bottom: 2%;
+}
+.one,.two,.three{
+
+  position: relative;
+  left: 35%;
+  color: #272343;
+}
+.typewriter h1{
+  height: fit-content;
+  color: #0f4c75;
+  width:33%;
+  letter-spacing: 0.15em;
+  margin: 30px auto;
+  font-size: 2em;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2.6s steps(30,end) alternate ,blink-caret 0.5s step-end infinite;
+}
+@keyframes typing {
+from{width: 0%}
+to{width:33%; }
+}
+@keyframes blink-caret {
+  from,to{border-right:transparent }
+  50%{border-right:3px solid  #3282b8}
+}
