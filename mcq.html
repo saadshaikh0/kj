@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" charset="utf-8"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="mcq.css">
+
+    <title>mcq page</title>
+  </head>
+  <body>
+    <div class="head">
+      <h2 class="text-center">KJ CODE DECODE
+            <!-- <i class="fas fa-desktop"></i> -->
+          </h2>
+    </div>
+    <div class="container content">
+      <div no=1 class="question-content">
+
+      <p class="question"><span class="no">1)</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <div class="answers">
+        <div class="row">
+          <div class="col-6">
+            <p class="inputs"><input id="q1A" type="radio" name="q1" value="A"><label for="q1A"> <span>A)</span> Saad Shaikh</p></label>
+          </div>
+          <div class="col-6">
+            <p class="inputs"><input id="q1B" type="radio" name="q1" value="B"><label for="q1B"> <span>B)</span> Zara Bhori</p></label>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p class="inputs"><input id="q1C" type="radio" name="q1" value="C"><label for="q1C"> <span>C)</span> Faizan Shaikh</p></label>
+
+          </div>
+          <div class="col-6">
+            <p class="inputs"><input id="q1D" type="radio" name="q1" value="D"><label for="q1D"> <span>D)</span> OMkar Ople</p></label>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div no=2 class="question-content">
+
+    <p class="question"><span class="no">2)</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <div class="answers">
+      <div class="row">
+        <div class="col-6">
+          <p><span>A) </span> Saad Shaikh</p>
+        </div>
+        <div class="col-6">
+          <p><span>B)</span>Zara Bhori</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <p ><span>C) </span> Saaif Mulla</p>
+        </div>
+        <div class="col-6">
+          <p><span>D)</span>Faizan Shaikh</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div no=3 class="question-content">
+
+  <p class="question"> <span class="no">3)</span>oiasdjgoiafdsjoiasdnfoipsdajf sdfioasdjoisajdpgoiasfjdgadfg jfsdioagpjsdfoiijsdao?</p>
+  <div class="answers">
+    <div class="row">
+      <div class="col-6">
+        <p><span>A) </span> kaliaa</p>
+      </div>
+      <div class="col-6">
+        <p><span>B)</span>Zara Bhori</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <p ><span>C) </span> Saaif Mulla</p>
+      </div>
+      <div class="col-6">
+        <p><span>D)</span>Faizan Shaikh</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div><div class="buttons">
+      <a href="#"><i id="left" class="fas fa-arrow-left left"></i></a>
+      <a href="#"><i id="right" class="fas fa-arrow-right right active"></i></a>
+      <button type="button" name="button">Submit</button>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+var cq=0;
+var d=document.querySelectorAll(".question-content");
+var left=document.querySelector("#left");
+var right=document.querySelector("#right");
+display();
+function display(){
+for(var i=0;i<d.length;i++){
+  if(i==cq){
+    d[i].style.display="block";
+    continue;
+  }
+  d[i].style.display="none";
+}}
+function trackcq(){
+  if(cq==0){
+    left.classList.remove("active");
+    right.classList.add("active");
+
+  }
+  else if(cq==d.length-1){
+    right.classList.remove("active");
+      left.classList.add("active");
+  }
+  else{
+    left.classList.add("active");
+    right.classList.add("active");
+  }
+}
+$("#right").click(function(e){
+  cq++;
+  display();
+  trackcq();
+
+
+
+
+});
+$("#left").click(function(e){
+  cq--;
+  display();
+trackcq();
+
+
+
+});
+</script>
+  </body>
+</html>

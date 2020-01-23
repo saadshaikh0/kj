@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth import get_user_model
 # Create your models here.
 class question(models.Model):
     text=models.TextField(max_length=200)
@@ -13,3 +13,7 @@ class answer(models.Model):
 
     def __str__(self):
         return self.text
+
+class Student(models.Model):
+    user=models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
+    marks=models.IntegerField(default=0)
