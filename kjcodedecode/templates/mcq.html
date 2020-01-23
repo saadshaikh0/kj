@@ -18,22 +18,34 @@
             <!-- <i class="fas fa-desktop"></i> -->
           </h2>
     </div>
+    
+    <!-- <p style="color:red;">{{i.0.text}}</p> -->
+    
+    <!-- <p>{{k.text}}</p> -->
+    
+    
     <div class="container content">
+      {%for i in values%}
       <div no=1 class="question-content">
-
-      <p class="question"><span class="no">1)</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <form action="/mcqpost/" method="POST">
+          {%csrf_token%}
+      <p class="question"><span class="no">{{ forloop.counter }})</span>{{i.0.text}}
       </p>
       <div class="answers">
         <div class="row">
+          {%for k in i.1%}
           <div class="col-6">
-            <p class="inputs"><input id="q1A" type="radio" name="q1" value="A"><label for="q1A"> <span>A)</span> Saad Shaikh</p></label>
+            <p class="inputs"><input id="q{{forloop.parentloop.counter}}{{k.1}}" type="radio" name="q{{forloop.parentloop.counter}}" value="{{k.0.text}}"><label for="q{{forloop.parentloop.counter}}{{k.1}}"> 
+              <span>{{k.1}}</span>
+              {{k.0.text}}</p></label>
           </div>
-          <div class="col-6">
+          {%endfor%}
+          <!-- <div class="col-6">
             <p class="inputs"><input id="q1B" type="radio" name="q1" value="B"><label for="q1B"> <span>B)</span> Zara Bhori</p></label>
 
-          </div>
+          </div> -->
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-6">
             <p class="inputs"><input id="q1C" type="radio" name="q1" value="C"><label for="q1C"> <span>C)</span> Faizan Shaikh</p></label>
 
@@ -42,60 +54,21 @@
             <p class="inputs"><input id="q1D" type="radio" name="q1" value="D"><label for="q1D"> <span>D)</span> OMkar Ople</p></label>
 
           </div>
-        </div>
+        </div> -->
       </div>
+      
     </div>
-    <div no=2 class="question-content">
-
-    <p class="question"><span class="no">2)</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <div class="answers">
-      <div class="row">
-        <div class="col-6">
-          <p><span>A) </span> Saad Shaikh</p>
-        </div>
-        <div class="col-6">
-          <p><span>B)</span>Zara Bhori</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <p ><span>C) </span> Saaif Mulla</p>
-        </div>
-        <div class="col-6">
-          <p><span>D)</span>Faizan Shaikh</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div no=3 class="question-content">
-
-  <p class="question"> <span class="no">3)</span>oiasdjgoiafdsjoiasdnfoipsdajf sdfioasdjoisajdpgoiasfjdgadfg jfsdioagpjsdfoiijsdao?</p>
-  <div class="answers">
-    <div class="row">
-      <div class="col-6">
-        <p><span>A) </span> kaliaa</p>
-      </div>
-      <div class="col-6">
-        <p><span>B)</span>Zara Bhori</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <p ><span>C) </span> Saaif Mulla</p>
-      </div>
-      <div class="col-6">
-        <p><span>D)</span>Faizan Shaikh</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+    {%endfor%}
+    
+ <div class="buttons">
+  <button type="submit" name="button">Submit</button>
+ </div>
+    
+  </form>
     </div><div class="buttons">
       <a href="#"><i id="left" class="fas fa-arrow-left left"></i></a>
       <a href="#"><i id="right" class="fas fa-arrow-right right active"></i></a>
-      <button type="button" name="button">Submit</button>
+      
 
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

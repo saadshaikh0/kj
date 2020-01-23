@@ -156,6 +156,7 @@ to{width:33%; }
   width: 80%;
   padding: 0px!important;
   /* padding-bottom: 5%!important; */
+
   background: transparent;
   border: 0px;
   border-bottom: 1px solid white;
@@ -227,27 +228,36 @@ button{
   transform: translateX(150%); */
   font-family: 'Ibarra Real Nova', serif;
   font-size: 20px;
-position: absolute;
-left: 26%;
+position: relative;
+left: -65%;
 bottom: 0%;
 transition: transform 0.5s ease-in;
 }
-label[for="password"]{
-  left: 33%;
+/* label[for="password"]{
+  left: -33%;
 }
 label[for="username"]{
-  left: 33%;
-}
+  left: -33%;
+} */
 .inputs input:focus{
   outline: none;
-}
-.inputs .group input:focus+label{
-  transform: translateX(-250%)!important;
 
 }
-.inputs input:valid+label{
-  transform: translateX(-150%)!important;
+ .inputs .group input:focus+label{
+  transform: translateX(-100px)!important;
+
 }
+.inputs .group input:valid+label{
+  transform: translateX(-100px)!important;
+}
+/*
+.inputs .group input[name="password"]:focus+label{
+  transform: translateX(-400px)!important;
+
+}
+.inputs input[id="username"]:valid+label,.inputs .group input[type="password"]:valid+label{
+  transform: translateX(-250%)!important;
+} */
 .button{
   font-size: 20px;
 }

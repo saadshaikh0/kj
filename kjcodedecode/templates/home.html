@@ -14,6 +14,13 @@
 <link rel="stylesheet" href="home.css">
 <link href="https://fonts.googleapis.com/css?family=Syncopate:700&display=swap" rel="stylesheet">
     <title>Home Page</title>
+    <style>
+    .image{
+      background: url("{%static 'img/laptop.jpg'%}");
+      background-position: center;
+      position: relative;
+    }
+    </style>
   </head>
   <body>
     <div class="head">
@@ -60,24 +67,25 @@
 
 
           <div class="col-5 login-form">
-            <form class="" action="index.html" method="post">
+            <form   action="/accounts/register" method="post">
+              {%csrf_token%}
               <div class="inputs">
 <div class="group">
-  <input type="text" id="Name" name="Name" value="">
+  <input type="text" id="Name" name="Name" value="" required>
     <label for="Name">Name</label>
 </div>
               <div class="group">
-                <input type="password" id="password" name="password" value="">
+                <input type="password" id="password" name="password" value="" required>
                 <label for="password">Password</label>
 
               </div>
               <div class="group">
-                <input type="text" id="username" name="username" value="">
+                <input type="text" id="username" name="username" value="" required>
                   <label for="username">Username</label>
               </div>
 
 <div class="group">
-  <input type="email" id="email" name="email" value="">
+  <input type="email" id="email" name="email" value="" required>
   <label for="email">Email</label>
 </div>
 

@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
 import requests
 import json
+from .models import question,answer,Student
 # Create your views here.
 def home(request):
     return render(request,"home.html")
@@ -41,4 +42,28 @@ def postdata(request):
         
         return JsonResponse({'output':output})
 def mcq(request):
-    return render(request,"mcq.html")
+    q=question.objects.all()
+    answers=[]
+    symbols=["A","B","C","D"]
+    for i in q:
+        answers.append(list(zip(i.answer_set.all(),symbols)))
+        
+    
+    m=list(zip(q,answers))
+    print(q,answers)
+    print(m)
+    for i in m:
+        print("**********")
+        print(i)
+        print("**********")
+        for j in i[1]:
+            print("#######")
+            print(j)
+            print("#######")
+
+
+    return render(request,"mcq.html",{"values":m})
+
+def mcqpost(request):
+    print(request.POST)
+    return redirect("/")
