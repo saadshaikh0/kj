@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse
 import requests
 import json
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 from .models import question,answer,Student
 # Create your views here.
 def home(request):
@@ -41,29 +43,45 @@ def postdata(request):
         print(output)
         
         return JsonResponse({'output':output})
+
 def mcq(request):
-    q=question.objects.all()
-    answers=[]
-    symbols=["A","B","C","D"]
-    for i in q:
-        answers.append(list(zip(i.answer_set.all(),symbols)))
+    if request.user.is_authenticated:
+        print("//////////////////")
+        print(request.user.id)
+        print("###############")
+        q=question.objects.all()
+        answers=[]
+        symbols=["A","B","C","D"]
+        for i in q:
+            answers.append(list(zip(i.answer_set.all(),symbols)))
+
+
+        m=list(zip(q,answers))
+        print(q,answers)
+        print(m)
+        for i in m:
+            
+            print(i)
+           
+            for j in i[1]:
+                
+                print(j)
+                
+
+
+        return render(request,"mcq.html",{"values":m})
+    else:
         
-    
-    m=list(zip(q,answers))
-    print(q,answers)
-    print(m)
-    for i in m:
-        print("**********")
-        print(i)
-        print("**********")
-        for j in i[1]:
-            print("#######")
-            print(j)
-            print("#######")
-
-
-    return render(request,"mcq.html",{"values":m})
+        return redirect("/")
 
 def mcqpost(request):
-    print(request.POST)
+    if request.method=="POST":
+        marks1=request.POST["marks"]
+        print("################")
+        print(marks1)
+        print("###########")
+        s,created=Student.objects.get_or_create(user_id=request.user.id)
+        s.marks=marks1
+        s.save()
+        
     return redirect("/")

@@ -24,6 +24,11 @@ body{
   visibility: visible;
 
 }
+input#marks{
+  visibility: hidden;
+  
+  
+}
 .right{
   visibility: hidden;
 }

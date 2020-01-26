@@ -15,4 +15,22 @@ def register(request):
         user.save()
         s=Student(user=user)
         s.save()
-        return redirect("/")
+        return redirect("/mcq")
+
+def login(request):
+    if request.method=="POST":
+        username=request.POST["username"]
+        password=request.POST["password"]
+        user=auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect("mcq")
+        else:
+            messages.info(request,"incorrect credintials")
+            return redirect("/")
+    else:
+        return redirect("home")
+
+def logout(request):
+    auth.logout(request)
+    return redirect("/")

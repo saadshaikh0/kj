@@ -4,14 +4,16 @@ html,body{
   overflow-x: hidden;
 }
 body{
-  background: #e7eeef;
+  /* background: #e7eeef; */
 }
 .head{
   background: #272343;
   padding: 3%;
+  display: flex;
 }
 .head h2{
   color: #bae8e8;
+  flex-grow: 1;
   text-shadow: 5px 5px 3px black;
   font-size: 300%;
 }
@@ -24,7 +26,7 @@ body{
 }
 .content{
   height: auto;
-background: #bae8e8;
+/* background: #bae8e8; */
 }
 .contentpara{
   padding:1% 8%;
@@ -88,4 +90,241 @@ to{width:33%; }
 @keyframes blink-caret {
   from,to{border-right:transparent }
   50%{border-right:3px solid  #3282b8}
+}
+.login{
+  height: 500px;
+}
+.row{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+button.close {
+ 
+  background-color: transparent;
+  border: 0;
+  margin: 0 !important;
+
+  padding: 0px!important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.login-form{
+  background: #393e46;
+  box-sizing: border-box;
+  z-index: 2;
+  padding-bottom: 8%;
+}
+.login-form::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #393e46;
+  transform-origin: 0 100%;
+  transform: skew(35deg);
+  z-index: -1;
+}
+
+.image{
+  position: relative;
+  background: url("laptop.jpg");
+  background-position: center;
+}
+.image h2{
+  position: absolute;
+  color: white;
+  left: 30%;
+  top: 24%;
+  font-size: 60px;
+  font-family: 'Libre Baskerville', serif;
+
+
+}
+.image p{
+  position: absolute;
+  color: white;
+  top:50%;
+  left: 20%;
+  font-size: 30px;
+  font-family: 'Girassol', cursive;
+
+}
+.image::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+}
+.inputs{
+  padding: 5% 0;
+  position: relative;
+}
+.inputs input{
+  width: 80%;
+  padding: 0px!important;
+  /* padding-bottom: 5%!important; */
+
+  background: transparent;
+  border: 0px;
+  border-bottom: 1px solid white;
+  color: white;
+
+}
+input[type="password"]{
+  position: relative;
+  left: 13%;
+  padding: 6% 0 0 0;
+}
+/* input[type="password"]:hover+label{
+  transform: translateX(-10%)!important;
+} */
+#username{
+  position: relative;
+  left: 14%;
+  padding: 6% 0 0 0;
+}
+#email{
+  position: relative;
+  left: 14%;
+  padding: 6% 0 0 0;
+}
+#Name{
+  position: relative;
+  left: 14%;
+  padding: 6% 0 0 0;
+}
+/* label[for="Name"]{
+  transform: translateX(5%)!important;
+  position: absolute;
+  left: -10%;
+}
+label[for="password"]{
+  position: absolute;
+    left: -6%;
+    top: 35%;
+
+}
+label[for="username"]{
+  position: absolute;
+    left: -6%;
+    top: 56%;
+    transform: translateX(5%)!important;
+}
+label[for="email"]{
+  position: absolute;
+    left:2%;
+    top: 80%;
+    transform: translateX(5%)!important;
+} */
+.form{
+  /* display: inline-block; */
+}
+button{
+  margin-top: 10%;
+  margin-left: 30%;
+  width: 50%;
+  padding: 1%;
+  border-radius: 1rem;
+
+}
+.inputs label{
+  color: white;
+  margin-right: 3%;
+  margin-bottom: 0px;
+  /* transform: translateY(100%);
+  transform: translateX(150%); */
+  font-family: 'Ibarra Real Nova', serif;
+  font-size: 20px;
+position: relative;
+left: -65%;
+bottom: 0%;
+transition: transform 0.5s ease-in;
+}
+/* label[for="password"]{
+  left: -33%;
+}
+label[for="username"]{
+  left: -33%;
+} */
+.inputs input:focus{
+  outline: none;
+
+}
+ .inputs .group input:focus+label{
+  transform: translateX(-100px)!important;
+
+}
+.inputs .group input:valid+label{
+  transform: translateX(-100px)!important;
+}
+/*
+.inputs .group input[name="password"]:focus+label{
+  transform: translateX(-400px)!important;
+
+}
+.inputs input[id="username"]:valid+label,.inputs .group input[type="password"]:valid+label{
+  transform: translateX(-250%)!important;
+} */
+.button{
+  font-size: 20px;
+}
+.group{
+  position: relative;
+  padding: 0 0;
+  margin: 5% 0;
+}
+.fa-arrow-right{
+  font-size: 20px;
+  margin-left: 2%;
+}
+.login-button{
+  margin: 0px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 20%;
+  border-radius: 2rem;
+  
+}
+.login-para{
+  color: white;
+  padding-top: 2%;
+}
+button[type="submit"]{
+  margin-top: 0px;
+}
+.login-group{
+  margin: 15px;
+  position: relative;
+}
+.login-group label{
+margin-right: 10px;
+}
+.login-group input{
+  padding:0px;
+  width: 60%;
+}
+.login-group input[type="password"]{
+
+}
+.login-group label[for="username"]{
+  margin-right: 60px;
+}
+.head a{
+  align-self: center;
+  color: #bae8e8;
+  text-decoration: none;
+  padding: 0.5% 1%;
+  border-radius: 1rem;
+  border: 1px solid #bae8e8;
+}
+.head a:hover{
+  background: #bae8e8;
+  color: #272343;
 }

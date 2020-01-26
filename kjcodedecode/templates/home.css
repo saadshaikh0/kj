@@ -9,9 +9,11 @@ body{
 .head{
   background: #272343;
   padding: 3%;
+  display: flex;
 }
 .head h2{
   color: #bae8e8;
+  flex-grow: 1;
   text-shadow: 5px 5px 3px black;
   font-size: 300%;
 }
@@ -97,10 +99,22 @@ to{width:33%; }
   height: 100%;
   margin: 0px;
 }
+button.close {
+ 
+  background-color: transparent;
+  border: 0;
+  margin: 0 !important;
+
+  padding: 0px!important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 .login-form{
   background: #393e46;
   box-sizing: border-box;
   z-index: 2;
+  padding-bottom: 8%;
 }
 .login-form::before{
   content: "";
@@ -217,7 +231,7 @@ button{
   margin-left: 30%;
   width: 50%;
   padding: 1%;
-  border-radius: 10%;
+  border-radius: 1rem;
 
 }
 .inputs label{
@@ -269,4 +283,48 @@ label[for="username"]{
 .fa-arrow-right{
   font-size: 20px;
   margin-left: 2%;
+}
+.login-button{
+  margin: 0px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 20%;
+  border-radius: 2rem;
+  
+}
+.login-para{
+  color: white;
+  padding-top: 2%;
+}
+button[type="submit"]{
+  margin-top: 0px;
+}
+.login-group{
+  margin: 15px;
+  position: relative;
+}
+.login-group label{
+margin-right: 10px;
+}
+.login-group input{
+  padding:0px;
+  width: 60%;
+}
+.login-group input[type="password"]{
+
+}
+.login-group label[for="username"]{
+  margin-right: 60px;
+}
+.head a{
+  align-self: center;
+  color: #bae8e8;
+  text-decoration: none;
+  padding: 0.5% 1%;
+  border-radius: 1rem;
+  border: 1px solid #bae8e8;
+}
+.head a:hover{
+  background: #bae8e8;
+  color: #272343;
 }
