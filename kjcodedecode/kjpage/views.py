@@ -40,7 +40,10 @@ def postdata(request):
 
         response = requests.post('https://ide.geeksforgeeks.org/main.php', headers=headers, data=data)
         output=response.json()['output']
+        print(response.json())
+        print("//////////")
         print(output)
+        print("##########")
         
         return JsonResponse({'output':output})
 
@@ -84,4 +87,16 @@ def mcqpost(request):
         s.marks=marks1
         s.save()
         
-    return redirect("/")
+    return redirect("/algorithm/")
+@login_required
+def score(request):
+    q=question.objects.all()
+    s=Student.objects.get(user_id=request.user.id)
+    correct=s.marks
+    wrong=len(q)-correct
+    result="PASS" if correct>wrong else "FAIL"
+    return render(request,"score.html",{"total":len(q),"c":correct,"w":wrong,"r":result})
+
+@login_required
+def algo(request):
+    return render(request,"algorithm.html")

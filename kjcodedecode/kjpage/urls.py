@@ -5,4 +5,6 @@ urlpatterns=[path("",views.home,name="home"),
             path("postdata/",views.postdata,name="postdata"),
             path("mcq/",views.mcq,name="mcq"),
             path('mcqpost/',views.mcqpost,name="mcqpost"),
+            path('score/',views.score,name="score"),
+            path("algorithm/",views.algo, name="algorithm"),
             ]

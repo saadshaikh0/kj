@@ -13,7 +13,7 @@
   <body>
     <div class="head">
       <h2 class="text-center">
-        KJ CODE DECODE
+        KJ PROGRAMMING CHAMPIONSHIP
             <!-- <i class="fas fa-desktop"></i> -->
           </h2>
 
@@ -21,7 +21,7 @@
 
     <div class="result">
 
-      <h4 class="text-center">ZAHARA </h4>
+      <h4 class="text-center text-capitalize">{{user.first_name}} </h4>
       <p class="line"></p>
       <div class="content">
         <div class="row">
@@ -32,18 +32,34 @@
             <p class="text-center">Result</p>
           </div>
           <div class="col-4">
-            <p class="text-center">6</p>
-            <p class="text-center">4</p>
-            <p class="text-center">2</p>
-            <p class="text-center">PASS</p>
+            <p class="text-center">{{total}}</p>
+            <p class="text-center">{{c}}</p>
+            <p class="text-center">{{w}}</p>
+            <p class="text-center">{{r}}</p>
           </div>
         </div>
+        {%if r == "PASS"%}
         <div class="content-footer">
-          <p class="text-center">Congratulations, <b>Zahara</b>  move to the next round</p>
-          <a href="#">Continue</a>
+          <p class="text-center">Congratulations, <b class="text-capitalize">{{user.first_name}}</b>  move to the next round</p>
+          <a href="/code/">Continue</a>
         </div>
-
+        {%else%}
+        <div class="content-footer">
+          <p class="text-center">Sorry, Better Luck next time</p>
+        </div>
+        {%endif%}
       </div>
     </div>
+    <script>
+    var result="{{r}}";
+    var k=document.querySelector(".result");
+    
+    if(result=="PASS"){
+      k.classList.add("active");
+    }
+    else{
+      k.classList.add("passive");
+    }
+    </script>
   </body>
 </html>

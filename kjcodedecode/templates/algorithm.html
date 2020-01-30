@@ -1,0 +1,134 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" charset="utf-8"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'algorithm.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap" rel="stylesheet">
+    <title>Algorithm page</title>
+  </head>
+  <body>
+    <div class="head">
+      <h2 class="text-center">KJ PROGRAMMING CHAMPIONSHIP
+            <!-- <i class="fas fa-desktop"></i> -->
+          </h2>
+    </div>
+    <div class="content ">
+      <div class="question-head">
+        <p>DEBUG THE CODE</p>
+      </div>
+      <div class="question-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <div class="example-output">
+          <pre>  *  </pre>
+          <pre> ***  </pre>
+          <pre>*****  </pre>
+        </div>
+      </div>
+      <div class="tabs">
+        <ul>
+        <li class="text-center active" l="Python3">
+          Python
+          
+        </li>
+        <li class="text-center" l="java">
+          Java
+          
+        </li>
+        <li class="text-center" l="Cpp14">
+          
+          C++
+        </li>
+        <li class="text-center" l="c">
+          C
+         
+        </li>
+        </ul>
+      </div>
+      <form action="/postdata/" id="data" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="container-fluid editwrap">
+          <div id="editor"></div>
+    </div>
+
+
+        <button type="submit" name="button">Submit</button>
+
+
+
+
+
+      </form>
+      <div class="output">
+        <h3>Output</h3>
+        <div style="white-space: pre-line;" id="outputpara"></div>
+        
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      var a=ace.edit("editor");
+      a.setValue("#Enter your code\na=5\nfor i in range(a)\n\tprint(a)")
+      a.setOptions({ useWrapMode: false,
+    highlightActiveLine: true,
+    showPrintMargin: false,
+    theme: 'ace/theme/xcode',
+    mode: 'ace/mode/python',
+    fontSize: "15pt"});
+    console.log(a.getValue());
+    $(".tabs ul li").click(function(e){
+      if(!$(e.target).hasClass("active")){
+      var d=document.querySelectorAll(".tabs ul li");
+      for(var k=0;k<d.length;k++){
+        d[k].classList.remove("active");
+      }
+      console.log(e.target.innerHTML);
+      e.target.className+=" active";
+      var lang=e.target.getAttribute("l");
+      if(lang=="Python3"){
+        a.setOptions({mode:"ace/mode/python",});
+        a.setValue("#Enter your code here");
+      }
+      else if(lang=="java"){
+        a.setOptions({mode:"ace/mode/java",});
+        a.setValue("//Enter your code here");
+      }
+      else if(lang=="Cpp14"){
+        a.setOptions({mode:"ace/mode/c_cpp",});
+        a.setValue("//Enter your code here");
+      }
+      else if(lang=="c"){
+        a.setOptions({mode:"ace/mode/c_cpp",});
+        a.setValue("//Enter your code here");
+      }
+      }
+    })
+    $(document).on('submit',"#data",function(e){
+      e.preventDefault();
+      var t=$(".tabs ul li.active").attr("l");
+      
+      $.ajax({
+        type:'POST',
+        url:"/postdata/",
+        data:{
+          lang:t,
+          code:a.getValue(),
+          inputdata:"",
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success:function(data){
+          console.log(data);
+          var d=document.querySelector("#outputpara");
+          d.innerHTML=data["output"];
+        },
+      })
+    })
+    </script>
+  </body>
+</html>
