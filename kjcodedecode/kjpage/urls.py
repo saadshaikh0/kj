@@ -7,4 +7,6 @@ urlpatterns=[path("",views.home,name="home"),
             path('mcqpost/',views.mcqpost,name="mcqpost"),
             path('score/',views.score,name="score"),
             path("algorithm/",views.algo, name="algorithm"),
+            path("submit/",views.submit,name="submit"),
+            path('leaderboard/',views.leaderboard,name="leaderboard")
             ]

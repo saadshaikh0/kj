@@ -1,0 +1,29 @@
+html,body{
+  height: auto;
+}
+body{
+  background: #e7eeef;
+}
+.head{
+  background: #272343;
+  padding: 3%;
+}
+.head h2{
+  color: #bae8e8;
+  text-shadow: 5px 5px 3px black;
+  font-size: 300%;
+}
+h3{
+  font-family: 'Abril Fatface', cursive;
+  color:#fff78f;
+  padding-top: 20px;
+}
+.content{
+  background:#272343 ;
+  margin-top: 3%;
+  color: #96f7d2;
+  border-radius: 1rem;
+}
+th,td{
+  padding: 12px;
+}

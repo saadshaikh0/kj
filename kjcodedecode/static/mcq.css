@@ -134,3 +134,19 @@ margin-left: 2%;
   padding: 0.5% 1%;
 
 }
+.counter{
+  position: fixed;
+  bottom: 1%;
+  width: 100px;
+  border-radius: 1rem;
+  background:#ff6f5e ;
+  right: 5%;
+}
+.counter p{
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  color:#f5f0e3 ;
+
+
+}

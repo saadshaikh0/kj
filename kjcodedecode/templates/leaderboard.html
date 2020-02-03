@@ -1,0 +1,46 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.7/ace.js" charset="utf-8"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'leaderboard.css'%}">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    
+    <title>Leaderboard</title>
+  </head>
+  <body>
+
+<div class="head">
+  <h2 class="text-center">KJ PROGRAMMING CHAMPIONSHIP
+        <!-- <i class="fas fa-desktop"></i> -->
+      </h2>
+</div>
+
+<div class="content container">
+  <h3 class="text-center" style="white-space:pre;"><i class="fas fa-trophy" style="font-size:25px; color:#fff78f;"></i>        Leaderboard</h3>
+  <div class="standings">
+    <table style="width:100%;">
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Time</th>
+      </tr>
+      {%for i in students%}
+      <tr>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+      </tr>
+
+      {%endfor%}
+    </table>
+  </div>
+</div>
+
+  </body>
+</html>

@@ -21,12 +21,15 @@
         <p>DEBUG THE CODE</p>
       </div>
       <div class="question-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p>Recreate the pattern shown below in any of the following Languages: Python, Java ,C , C++</p>
+        <p>The following code is altered /modified to not match the output you are given the task to fix the code so that is prints the given pattern</p>
         <div class="example-output">
-          <pre>  *  </pre>
-          <pre> ***  </pre>
-          <pre>*****  </pre>
+          <pre>***********</pre>
+          <pre> *********</pre>
+          <pre>  *******</pre>
+          <pre>   *****</pre>
+          <pre>    ***</pre>
+          <pre>     *</pre>
         </div>
       </div>
       <div class="tabs">
@@ -55,10 +58,15 @@
           <div id="editor"></div>
     </div>
 
-
+    <div class="algo-buttons">
+     
         <button type="submit" name="button">Submit</button>
-
-
+        
+      <div class="next-button">
+        <a class="next" href="/code/">Next</a>
+      </div>
+         
+      </div>
 
 
 
@@ -69,12 +77,45 @@
         
       </div>
     </div>
+    <div class="counter">
+      <p>Timings</p>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script type="text/javascript">
+    var x="{{time}}";
+var t=x.split(","); 
+for(var i=1;i<t.length-1;i++){
+  t[i]=t[i].replace(/&#39;/g,"");
+  console.log(t[i]);
+}
+var months={"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"July":7,
+            "Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12};
+var day=parseInt(t[1]);
+var mon=months[t[2].trim()];
+var year=parseInt(t[3]);
+var hr=parseInt(t[4]);
+var min=parseInt(t[5]);
+var sec=parseInt(t[6]);
+console.log(day,mon,year,hr,min,sec);
+
+
+var timer=document.querySelector(".counter p");
+    
+    var count_to=new Date(year,mon,day,hr,min,sec,0);
+    var x=setInterval(function(){
+      var now=new Date().getTime();
+      var d=count_to-now;
+      var min=Math.floor((d%(1000*60*60))/(1000*60));
+      var sec=Math.floor((d%(1000*60))/(1000));
+      timer.innerHTML=min+ " : "+sec;
+      if(min==0 && sec==00){
+        window.location.href="/accounts/logout";
+      }
+    },1000);
       var a=ace.edit("editor");
-      a.setValue("#Enter your code\na=5\nfor i in range(a)\n\tprint(a)")
+      a.setValue("#Correct the code\na=6\nfor i in range(a):\n\tj=i\n\tfor k in range(j):\n\t\tprint(end=\" \")\n\tm=a-i\n\tfor l in range(m*2-1):\n\t\tprint(\"*\",end=\"\")\n\tprint()")
       a.setOptions({ useWrapMode: false,
     highlightActiveLine: true,
     showPrintMargin: false,
@@ -93,7 +134,7 @@
       var lang=e.target.getAttribute("l");
       if(lang=="Python3"){
         a.setOptions({mode:"ace/mode/python",});
-        a.setValue("#Enter your code here");
+        a.setValue("#Correct the code\na=6\nfor i in range(a):\n\tj=i\n\tfor k in range(j):\n\t\tprint(end=\" \")\n\tm=a-i\n\tfor l in range(m*2-1):\n\t\tprint(\"*\",end=\"\")\n\tprint()");
       }
       else if(lang=="java"){
         a.setOptions({mode:"ace/mode/java",});
@@ -125,7 +166,14 @@
         success:function(data){
           console.log(data);
           var d=document.querySelector("#outputpara");
-          d.innerHTML=data["output"];
+          var k=data["output"];
+          k=k.replace(/ /g,"&nbsp;");
+          d.innerHTML=k;
+          console.log("in html"+data["result"]);
+          if(data["result"]){
+            var t=document.querySelector("div.next-button");
+            t.classList.add("active");
+          }
         },
       })
     })

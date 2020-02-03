@@ -84,3 +84,19 @@ font-size: 30px;
   background-color: green;
   border: 1px solid white;
 }
+.counter{
+  position: fixed;
+  bottom: 1%;
+  width: 100px;
+  border-radius: 1rem;
+  background:#ff6f5e ;
+  right: 5%;
+}
+.counter p{
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  color:#f5f0e3 ;
+
+
+}

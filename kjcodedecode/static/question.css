@@ -124,3 +124,27 @@ background: white;
 
   width: 40%;
 }
+.counter{
+  position: fixed;
+  bottom: 1%;
+  width: 100px;
+  border-radius: 1rem;
+  background:#ff6f5e ;
+  right: 5%;
+}
+.counter p{
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  color:#f5f0e3 ;
+
+
+}
+.winning p{
+  display: none;
+  color: limegreen;
+  font-weight: 600;
+}
+.winning p.active{
+  display: block;
+}

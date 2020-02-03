@@ -43,7 +43,7 @@ margin-top: 2%;
 .example-output pre{
   font-size: 20px;
   margin-left: 50px;
-  padding: 5px 0px;
+  padding: 0px 0px;
     color: #bae8e8;
 }
 #editor{
@@ -121,3 +121,46 @@ button[type="submit"]:hover,button[type="submit"]:active{
 
   width: 40%;
 }
+div.algo-buttons{
+  display: flex;
+}
+div.next-button{
+  display: none;
+}
+.next-button.active{
+  flex-grow: 1;
+  display: flex;
+  justify-content: right;
+}
+.next{
+  background: rgb(87, 240, 87);
+  
+  align-self: center;
+  margin-left: 60%;
+  color: white;
+  text-align: right;
+  padding:10px 30px;
+  font-size: 25px;
+  border-radius: 1rem;
+}
+.next:hover{
+  text-decoration: none;
+  
+}
+.counter{
+  position: fixed;
+  bottom: 1%;
+  width: 100px;
+  border-radius: 1rem;
+  background:#ff6f5e ;
+  right: 5%;
+}
+.counter p{
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+  color:#f5f0e3 ;
+
+
+}
+
